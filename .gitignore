@@ -39,6 +39,7 @@ logs/
 /ui/build
 
 # Misc.
+/ui/.eslintcache
 /ui/.DS_Store
 /ui/.env.local
 /ui/.env.development.local
