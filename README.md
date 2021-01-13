@@ -1,2 +1,2 @@
 # CompreDB
-Repository hosting the KnowledgeDB application.
+Repository hosting a personal knowledge DB application.
