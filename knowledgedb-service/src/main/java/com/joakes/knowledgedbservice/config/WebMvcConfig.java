@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.persistence.EntityManager;
@@ -19,7 +18,6 @@ import java.util.List;
  */
 @RequiredArgsConstructor
 @Configuration
-@EnableWebMvc
 public class WebMvcConfig implements WebMvcConfigurer {
     private final ApplicationContext applicationContext;
     private final EntityManager entityManager;
