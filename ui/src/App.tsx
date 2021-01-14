@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from "axios";
 
 interface Document {
     id: number,
@@ -13,9 +14,8 @@ function App() {
 
     useEffect(() => {
         const getAllDocuments = async () => {
-            const response = await fetch('/v1/documents/');
-            const body = await response.json();
-            setDocuments(body);
+            const response = await axios.get<Document[]>('http://localhost:9443/v1/documents/');
+            setDocuments(response.data);
         };
 
         getAllDocuments().catch(console.error);
@@ -25,16 +25,11 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo"/>
-                <p>
-                    {documents.map((document: Document) => {
-                        return (
-                            <div key={document.id}>
-                                Name: {document.name}
-                                URL: {document.url}
-                            </div>
-                        )
-                    })}
-                </p>
+                <ul>
+                    {documents.map((document: Document) =>
+                        <li key={document.id}>Name: {document.name} URL: {document.url}</li>)
+                    }
+                </ul>
             </header>
         </div>
     );
